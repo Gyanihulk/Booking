@@ -1,12 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-import Navbar from './Components/Navbar/Navbar';
-import Header from '././Components/header/Header'
+
+import Home from "./pages/home/Home";
+import Hotel from "./pages/hotel/Hotel";
+import List from "./pages/list/List";
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
 function App() {
   return (
-   <> <Navbar/>
-   <Header/></>
-   
+    <>
+      
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/hotels" element={<List/>}/>
+        <Route path="/hotels/:id" element={<Hotel/>}/>
+      </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 
