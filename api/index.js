@@ -6,7 +6,7 @@ import authRoute from "./routes/auths.js"
 import userRoute from "./routes/users.js"
 import roomRoute from "./routes/rooms.js"
 import hotelRoute from "./routes/hotels.js"
-
+import cookieParser from "cookie-parser";
 const app = express();
 dotenv.config();
 const connect = async () => {
@@ -32,7 +32,8 @@ mongoose.connection.on("connected", () => {
   app.use('/api/user',userRoute)
   app.use('/api/rooms',roomRoute)
   app.use('/api/hotels',hotelRoute)
-
+  app.use(cookieParser())
+  
   app.use((err,req,res,next)=>{
     const errorStatus=err.status||500
     const errorMessage=err.message||500
