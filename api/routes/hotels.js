@@ -9,11 +9,11 @@ import {
   getHotels,
   updateHotel,
 } from "../controllers/hotel.js";
-import {verifyAdmin} from "../utils/verifyToken.js"
+import {verifyAdmin, verifyToken} from "../utils/verifyToken.js"
 const router = express.Router();
 
 //CREATE
-router.post("/", verifyAdmin, createHotel);
+router.post("/", verifyToken, createHotel);
 
 //UPDATE
 router.put("/:id", verifyAdmin, updateHotel);
