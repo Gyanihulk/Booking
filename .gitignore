@@ -3,10 +3,11 @@
 # dependencies
 /client/node_modules
 /api/node_modules
-
+/Admin/node_modules
 /.pnp
+/api/*.env
 .pnp.js
-
+/Admin
 # testing
 /coverage
 

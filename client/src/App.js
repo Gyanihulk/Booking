@@ -7,10 +7,24 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  Navigate,
 } from "react-router-dom";
 import Login from "./pages/login/Login";
+import { AuthContext } from "./context/AuthContext";
+import { useContext } from "react";
+import List1 from "./pages/User/List1/List1";
 
 function App() {
+  const ProtectedRoute = ({ children }) => {
+    const { user } = useContext(AuthContext);
+
+    if (!user) {
+      return <Navigate to="/login" />;
+    }
+
+    return children;
+  };
+
   return (
     <>
       
@@ -20,6 +34,11 @@ function App() {
         <Route path="/hotels" element={<List/>}/>
         <Route path="/hotels/:id" element={<Hotel/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="users" >
+              <Route index element={<ProtectedRoute><List1/></ProtectedRoute>}/>
+              
+              </Route>
+            
       </Routes>
     </BrowserRouter>
     </>

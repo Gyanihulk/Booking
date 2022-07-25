@@ -3,7 +3,7 @@ import Room from "../models/Room.js";
 
 export const createHotel = async (req, res, next) => {
   const newHotel = new Hotel(req.body);
-console.log(req.cookie)
+  console.log(req.cookie)
   try {
     const savedHotel = await newHotel.save();
     res.status(200).json(savedHotel);
@@ -53,7 +53,6 @@ export const getHotels = async (req, res, next) => {
 };
 export const countByCity = async (req, res, next) => {
   const cities = req.query.cities.split(",");
-
   try {
     const list = await Promise.all(
       cities.map((city) => {
