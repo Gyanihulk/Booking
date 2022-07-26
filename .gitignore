@@ -7,7 +7,6 @@
 /.pnp
 /api/.env
 .pnp.js
-/Admin
 # testing
 /coverage
 

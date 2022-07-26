@@ -13,7 +13,7 @@ import Login from "./pages/login/Login";
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
 import List1 from "./pages/User/List1/List1";
-
+import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
 function App() {
   const ProtectedRoute = ({ children }) => {
     const { user } = useContext(AuthContext);
@@ -34,8 +34,8 @@ function App() {
         <Route path="/hotels" element={<List/>}/>
         <Route path="/hotels/:id" element={<Hotel/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="users" >
-              <Route index element={<ProtectedRoute><List1/></ProtectedRoute>}/>
+        <Route path="/users" >
+              <Route index element={<ProtectedRoute><List1  /></ProtectedRoute>}/>
               
               </Route>
             
