@@ -3,7 +3,7 @@ import Room from "../models/Room.js";
 
 export const createHotel = async (req, res, next) => {
   const newHotel = new Hotel(req.body);
-  console.log(req.cookie)
+ 
   try {
     const savedHotel = await newHotel.save();
     res.status(200).json(savedHotel);

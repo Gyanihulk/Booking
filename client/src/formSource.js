@@ -3,19 +3,19 @@ export const userInputs = [
     id: "username",
     label: "Username",
     type: "text",
-    placeholder: "john_doe",
+    placeholder: "Adamya_kumar",
   },
   {
     id: "email",
     label: "Email",
     type: "email",
-    placeholder: "john_doe@gmail.com",
+    placeholder: "adamya_kumar@gmail.com",
   },
   {
     id: "phone",
     label: "Phone",
     type: "text",
-    placeholder: "+1 234 567 89",
+    placeholder: "+91 994 985 8912",
   },
   {
     id: "password",
@@ -26,46 +26,19 @@ export const userInputs = [
     id: "country",
     label: "Country",
     type: "text",
-    placeholder: "USA",
+    placeholder: "India",
   },
   {
     id: "city",
     label: "City",
     type: "text",
-    placeholder: "USA",
-  },
-];
-
-export const productInputs = [
-  {
-    id: 1,
-    label: "Title",
-    type: "text",
-    placeholder: "Apple Macbook Pro",
+    placeholder: "Dehradun",
   },
   {
-    id: 2,
-    label: "Description",
-    type: "text",
-    placeholder: "Description",
-  },
-  {
-    id: 3,
-    label: "Category",
-    type: "text",
-    placeholder: "Computers",
-  },
-  {
-    id: 4,
-    label: "Price",
-    type: "text",
-    placeholder: "100",
-  },
-  {
-    id: 5,
-    label: "Stock",
-    type: "text",
-    placeholder: "in stock",
+    id: "isAdmin",
+    label: "isAdmin",
+    type: "checkbox",
+    placeholder: "Is the User Admin",
   },
 ];
 
@@ -86,13 +59,13 @@ export const hotelInputs = [
     id: "city",
     label: "City",
     type: "text",
-    placeholder: "New York",
+    placeholder: "Haridwar",
   },
   {
     id: "address",
     label: "Address",
     type: "text",
-    placeholder: "elton st, 216",
+    placeholder: "Shivalik Nagar",
   },
   {
     id: "distance",
@@ -110,13 +83,13 @@ export const hotelInputs = [
     id: "desc",
     label: "Description",
     type: "text",
-    placeholder: "description",
+    placeholder: "Description",
   },
   {
     id: "cheapestPrice",
     label: "Price",
     type: "text",
-    placeholder: "100",
+    placeholder: "499",
   },
 ];
 

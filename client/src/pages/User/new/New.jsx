@@ -1,6 +1,5 @@
 import "./new.scss";
 
-
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios";
@@ -17,35 +16,45 @@ const New = ({ inputs, title }) => {
   const handleClick = async (e) => {
     e.preventDefault();
     const data = new FormData();
-    data.append("file", file);
-    data.append("upload_preset", "upload");
-    console.log(data)
-    try {
-      const uploadRes = await axios.post(
-        "https://api.cloudinary.com/v1_1/dl0dnzxur/image/upload",
-        data
+    let uploadRes;
+    let url =
+      "https://upload.wikimedia.org/wikipedia/commons/1/12/User_icon_2.svg";
+    if (file !== "") {
+      data.append("file", file);
+      data.append(
+        "upload_preset",
+        process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
       );
+      data.append("api_key", process.env.REACT_APP_CLOUDINARY_API_KEY);
+      try {
+        uploadRes = await axios.post(
+          process.env.REACT_APP_CLOUDINARY_URL,
+          data
+        );
+        url = uploadRes.data.url;
+      } catch (err) {
+        console.log("err in uploading to cloudinary ", err);
+      }
+    }
 
-      const { url } = uploadRes.data;
-
+    try {
       const newUser = {
         ...info,
-        img: url,
+        img: url ? url : "No image",
       };
 
-      await axios.post("http://localhost:5000/api/auth/register", newUser);
-      console.log("user created")
+      await axios.post("/auth/register", newUser);
+      console.log("user created");
     } catch (err) {
       console.log(err);
     }
   };
 
-  console.log(info);
+
   return (
     <div className="new">
       <Sidebar />
       <div className="newContainer">
-        
         <div className="top">
           <h1>{title}</h1>
         </div>

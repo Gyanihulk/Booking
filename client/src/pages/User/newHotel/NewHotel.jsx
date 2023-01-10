@@ -37,9 +37,12 @@ const NewHotel = () => {
         Object.values(files).map(async (file) => {
           const data = new FormData();
           data.append("file", file);
-          data.append("upload_preset", "upload");
+          data.append(
+            "upload_preset",
+            process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+          );
           const uploadRes = await axios.post(
-            "https://api.cloudinary.com/v1_1/lamadev/image/upload",
+            process.env.REACT_APP_CLOUDINARY_URL,
             data
           );
 
@@ -55,6 +58,7 @@ const NewHotel = () => {
       };
 
       await axios.post("/hotels", newhotel);
+      console.log(newhotel)
     } catch (err) {console.log(err)}
   };
   return (

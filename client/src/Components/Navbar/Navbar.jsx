@@ -7,11 +7,11 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navContainer">
-        <Link to="/" style={{color:"inherit",textDecoration:"none"}}> <span className="logo">ExpertGuru</span></Link>
+        <Link to="/" style={{color:"inherit",textDecoration:"none"}}> <span className="logo">DevBhoomi Tourism</span></Link>
        
           {user?user.username:(<div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
+          <Link to="/register"><button className="navButton">Register</button></Link>
+          <Link to="/login"><button className="navButton">Login</button></Link>
           </div>)}
         
       </div>

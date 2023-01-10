@@ -14,6 +14,7 @@ import { hotelInputs, userInputs } from "./formSource";
 import Single from "./pages/User/single/Single";
 import NewHotel from "./pages/User/newHotel/NewHotel";
 import NewRoom from "./pages/User/newRoom/NewRoom";
+import Register from "./pages/Register/Register";
 
 function App() {
   const ProtectedRoute = ({ children }) => {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/hotel" element={<List />} />
           <Route path="/hotel/:id" element={<Hotel />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/users">
             <Route

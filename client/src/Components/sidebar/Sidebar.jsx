@@ -2,7 +2,6 @@ import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
@@ -48,14 +47,10 @@ const Sidebar = () => {
           <Link to="/rooms" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
-              <span>Available Slot</span>
+              <span>Rooms</span>
             </li>
           </Link>
           
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Staff</span>
-          </li>
           <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />
@@ -88,16 +83,6 @@ const Sidebar = () => {
             <span>Logout</span>
           </li>
         </ul>
-      </div>
-      <div className="bottom">
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "LIGHT" })}
-        ></div>
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "DARK" })}
-        ></div>
       </div>
     </div>
   );

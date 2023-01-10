@@ -16,8 +16,9 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
-const Header = ({type}) => {
+const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -44,16 +45,20 @@ const Header = ({type}) => {
   };
   const navigate = useNavigate();
 
-  const {dispatch}=useContext(SearchContext)
+  const { dispatch } = useContext(SearchContext);
   const handleSearch = () => {
-    dispatch({type:"NEW_SEARCH",payload:{destination,dates,options}})
+    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
     navigate("/hotel", { state: { destination, dates, options } });
   };
 
-  const {user}=useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   return (
     <div className="header">
-      <div className={type ==="list"?"headerContainer listMode":"headerContainer"}>
+      <div
+        className={
+          type === "list" ? "headerContainer listMode" : "headerContainer"
+        }
+      >
         <div className="headerList">
           <div className="headerListItem active">
             <FontAwesomeIcon icon={faBed} />
@@ -76,11 +81,23 @@ const Header = ({type}) => {
             <span>Airport Taxis</span>
           </div>
         </div>
-        {type !== "list" && 
+        {type !== "list" && (
           <>
             <h1 className="headerTitle">A Lifetime discount</h1>
             <p> get rewards for travel and buy a car</p>
-           {user?user.username: <button className="headerBtn">Sign in/Register</button>}
+            {user ? (
+              user.username
+            ) : (
+              <>
+                {" "}
+                <Link to="/register">
+                  <button className="headerBtn">Register</button>
+                </Link>
+                <Link to="/login">
+                  <button className="headerBtn">Login</button>
+                </Link>
+              </>
+            )}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
@@ -88,7 +105,7 @@ const Header = ({type}) => {
                   type="text"
                   placeholder="Where are you going"
                   className="headerSearchInput"
-                  onChange={(e)=>setDestination(e.target.value)}
+                  onChange={(e) => setDestination(e.target.value)}
                 />
               </div>
               <div className="headerSearchItem">
@@ -185,10 +202,12 @@ const Header = ({type}) => {
                   </div>
                 )}
               </div>
-              <button className="headerBtn" onClick={handleSearch}>Search</button>
+              <button className="headerBtn" onClick={handleSearch}>
+                Search
+              </button>
             </div>
           </>
-        }
+        )}
       </div>
     </div>
   );
