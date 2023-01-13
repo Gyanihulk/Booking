@@ -43,7 +43,7 @@ const New = ({ inputs, title }) => {
         img: url ? url : "No image",
       };
 
-      await axios.post(`${process.env.REACT_APP_CLOUDINARY_URL}/auth/register`, newUser);
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/register`, newUser);
       console.log("user created");
     } catch (err) {
       console.log(err);
