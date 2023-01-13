@@ -5,7 +5,7 @@
 /api/node_modules
 /Admin/node_modules
 /.pnp
-/api/.env
+.env
 .pnp.js
 # testing
 /coverage
