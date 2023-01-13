@@ -57,7 +57,7 @@ const NewHotel = () => {
         photos: list,
       };
 
-      await axios.post("/hotels", newhotel);
+      await axios.post(`${process.env.REACT_APP_CLOUDINARY_URL}/hotels`, newhotel);
       console.log(newhotel)
     } catch (err) {console.log(err)}
   };

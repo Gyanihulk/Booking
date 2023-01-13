@@ -22,7 +22,7 @@ const Register = () => {
     console.log(userDetails);
     // dispatch({ type: "LOGIN_START" });
     try {
-        const res = await axios.post("/auth/register", userDetails);
+        const res = await axios.post(`${process.env.REACT_APP_CLOUDINARY_URL}/auth/register`, userDetails);
         navigate("/login");
     } catch (err) {
         error.message=err
