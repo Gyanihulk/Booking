@@ -8,6 +8,7 @@ import FeaturedProperties from "../../Components/featuredProperties/FeaturedProp
 import MailList from "../../Components/mailList/MailList";
 import Footer from "../../Components/footer/Footer";
 const Home = () => {
+  console.log(process.env.REACT_APP_BACKEND_URL)
   return (
     <div>
       <Navbar />
