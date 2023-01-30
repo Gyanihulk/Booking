@@ -9,7 +9,9 @@ const Navbar = () => {
       <div className="navContainer">
         <Link to="/" style={{color:"inherit",textDecoration:"none"}}> <span className="logo">DevBhoomi Tourism</span></Link>
        
-          {user?user.username:(<div className="navItems">
+          {user?(<div className="navItems"><Link to="/users"><button className="navButton">Users List</button></Link>
+          <Link to="/hotels"><button className="navButton">hotels List</button></Link>
+          <Link to="/dashboard"><button className="navButton">Dashboard</button></Link></div>):(<div className="navItems">
           <Link to="/register"><button className="navButton">Register</button></Link>
           <Link to="/login"><button className="navButton">Login</button></Link>
           </div>)}
