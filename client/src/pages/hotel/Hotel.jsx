@@ -25,7 +25,7 @@ const Hotel = () => {
   const [openModal, setOpenModal] = useState(false);
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-  const { data, loading, error } = useFetch(`/hotels/find/${id}`);
+  const { data, loading, error } = useFetch(`hotels/find/${id}`);
   const { dates, options } = useContext(SearchContext);
   console.log(dates);
   const handleOpen = (i) => {
@@ -144,7 +144,7 @@ const Hotel = () => {
           </div>
         </>
       )}
-      {openModal&&<Reserve setOpen={setOpenModal} hotelId={id}/>}
+      {openModal && <Reserve setOpen={setOpenModal} hotelId={id}/>}
     </div>
   );
 };
