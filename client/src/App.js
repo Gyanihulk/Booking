@@ -15,6 +15,8 @@ import Single from "./pages/User/single/Single";
 import NewHotel from "./pages/User/newHotel/NewHotel";
 import NewRoom from "./pages/User/newRoom/NewRoom";
 import Register from "./pages/Register/Register";
+import NavBar from "./Components/theme1/NavBar";
+import Footer from "./Components/theme1/Footer";
 
 function App() {
   const ProtectedRoute = ({ children }) => {
@@ -30,6 +32,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+    <NavBar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/hotel" element={<List />} />
@@ -109,6 +112,7 @@ function App() {
             />
           </Route>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   );

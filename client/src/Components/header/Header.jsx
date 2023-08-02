@@ -59,33 +59,11 @@ const Header = ({ type }) => {
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
-        <div className="headerList">
-          <div className="headerListItem active">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car Rentals</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Airport Taxis</span>
-          </div>
-        </div>
+     
         {type !== "list" && (
           <>
-            <h1 className="headerTitle">A Lifetime discount</h1>
-            <p> get rewards for travel and buy a car</p>
-            {user ? (
+            
+            {/* {user ? (
               user.username
             ) : (
               <>
@@ -97,7 +75,7 @@ const Header = ({ type }) => {
                   <button className="headerBtn">Login</button>
                 </Link>
               </>
-            )}
+            )} */}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
