@@ -1,24 +1,26 @@
 import React from "react";
 
-import NavBar from "../../Components/theme1/NavBar";
+
 import HeroSection from "../../Components/theme1/HeroSection";
 import Services from "../../Components/theme1/Services";
 import TopDestination from "../../Components/theme1/TopDestination";
 import BookingSteps from "../../Components/theme1/BookingSteps";
 import NewsLetter from "../../Components/theme1/NewsLetter";
+import Header from "../../Components/header/Header";
 const Home = () => {
   console.log(process.env.REACT_APP_BACKEND_URL)
   return (
     <div>
 
  <HeroSection/>
-      {/* <Header /> */}
+      
       <Services />
+     
             {/* <TopDestination /> */}
-            <BookingSteps />
+            {/* <BookingSteps /> */}
             {/* <Testimonials />
             <Partners /> */}
-            <NewsLetter />
+            {/* <NewsLetter /> */}
       {/* <div className="homeContainer">
         <Featured />
         <h1 className="homeTitle">Browse by property type</h1>

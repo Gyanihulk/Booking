@@ -9,7 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
 import { DateRange } from "react-date-range";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
@@ -17,6 +17,9 @@ import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
+import { Button } from "../atoms/Button";
+import { Text } from "../atoms/Text";
+import { Play } from "@phosphor-icons/react";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -52,8 +55,12 @@ const Header = ({ type }) => {
   };
 
   const { user } = useContext(AuthContext);
+  const boxRef = useRef(null);
+
+  
+
   return (
-    <div className="header">
+    <div className="header" >
       <div
         className={
           type === "list" ? "headerContainer listMode" : "headerContainer"
@@ -76,13 +83,13 @@ const Header = ({ type }) => {
                 </Link>
               </>
             )} */}
-            <div className="headerSearch">
+            <div className="bg-transparent px-8 pt-6 pb-8 mb-4">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
                 <input
                   type="text"
                   placeholder="Where are you going"
-                  className="headerSearchInput"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   onChange={(e) => setDestination(e.target.value)}
                 />
               </div>
@@ -113,7 +120,7 @@ const Header = ({ type }) => {
                   className="headerSearchText"
                 >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
                 {openOptions && (
-                  <div className="options">
+                  <div ref={boxRef}  className="options">
                     <div className="optionItem">
                       <span className="optionText">Adult</span>
                       <div className="optionCounter">
@@ -180,9 +187,11 @@ const Header = ({ type }) => {
                   </div>
                 )}
               </div>
-              <button className="headerBtn" onClick={handleSearch}>
-                Search
-              </button>
+              <div className="w-full flex md:justify-start justify-between items-center lg:gap-12 md:gap-6 gap-0">
+                        <Button type="button" className="outline-none border-none lg:px-7 px-1 py-3 bg-color2 text-white font-extralight rounded-lg" onClick={handleSearch}>
+                           Explore our Hotels
+                        </Button>
+                </div>
             </div>
           </>
         )}

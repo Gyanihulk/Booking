@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Image } from "../atoms/Image";
 import { Button } from "../atoms/Button"
 
 import { NavButtons, NavLinks } from "../particles/DataLists"
 import { List } from "../atoms/List";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import { Slide } from "react-awesome-reveal";
+import { AuthContext } from "../../context/AuthContext";
 
 
 
@@ -32,13 +33,16 @@ const NavBar = () => {
         };
     }, []);
 
-
+    const { user } = useContext(AuthContext);
     return (
         <header className="w-full h-auto bg-transparent overflow-x-hidden fixed z-50 top-0 left-0">
             <Slide direction="down">
                 <nav className={`w-full md:h-24 h-20 ${navBarColor ? "bg-white" : "bg-transparent"} lg:px-24 md:px-12 px-8 flex justify-between items-center`}>
                     {/* <Image as="a" href="/" className="md:h-10 h-8" image={Logo} alt="Logo" /> */}
+                    <Link to='/'>
+
                     <h1 className="md:h-15 h-8 pt-2 font-bold">Chardham Stays</h1>
+                    </Link>
                     <div className="lg:flex hidden items-center gap-20">
                         <ul className="flex items-center justify-center gap-8">
                             {
@@ -51,13 +55,25 @@ const NavBar = () => {
 
                         </ul>
                         <ul className="flex items-center justify-center gap-6">
-                            {
-                                NavButtons.map((navbutton, index) => (
-                                    <List className="w-full" key={index}>
-                                        <Button onClick={() => navigate(navbutton.url)} type="button" className={`${navbutton.name === "Signup" ? "border-2 border-gray-950 before:top-0" : "before:bottom-0 border-b-2 border-transparent hover:border-gray-950"} py-2 px-8 relative z-10 before:content-[''] before:absolute before:left-0 before:w-full before:h-0 before:bg-color2 before:-z-10 hover:before:h-full before:transition-all before:duration-300 before:ease-in text-base`}>{navbutton.name}</Button>
-                                    </List>
-                                ))
-                            }
+                        {user ? (
+          <div className="navItems">
+            <Link to="/users">
+              <button className="navButton">Users List</button>
+            </Link>
+            <Link to="/hotels">
+              <button className="navButton">hotels List</button>
+            </Link>
+            <Link to="/dashboard">
+              <button className="navButton">Dashboard</button>
+            </Link>
+          </div>
+        ) : (
+            NavButtons.map((navbutton, index) => (
+                <List className="w-full" key={index}>
+                    <Button onClick={() => navigate(navbutton.url)} type="button" className={`${navbutton.name === "Signup" ? "border-2 border-gray-950 before:top-0" : "before:bottom-0 border-b-2 border-transparent hover:border-gray-950"} py-2 px-8 relative z-10 before:content-[''] before:absolute before:left-0 before:w-full before:h-0 before:bg-color2 before:-z-10 hover:before:h-full before:transition-all before:duration-300 before:ease-in text-base`}>{navbutton.name}</Button>
+                </List>
+            ))
+        )}
                             <List className="text-gray-950">
                                 <select className="border-none font-light text-base outline-none bg-transparent">
                                     <option value="EN" selected>EN</option>

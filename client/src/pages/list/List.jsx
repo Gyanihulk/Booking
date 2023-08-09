@@ -27,8 +27,7 @@ const handleClick=()=>{
   return (
 
     <div>
-      <Navbar />
-      <Header type="list" />
+    
 
       <div className="listContainer">
         <div className="listWrapper">
@@ -36,14 +35,14 @@ const handleClick=()=>{
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input type="text" />
+              <input placeholder={destination} type="text" />
             </div>
+            {/* <div className="lsItem">
+              <label>Check-in Date</label>
+              <input placeholder={dates[0].startDate} type="text" />
+            </div> */}
             <div className="lsItem">
-              <label>CHeck-in Date</label>
-              <input placeholder={destination}type="text" />
-            </div>
-            <div className="lsItem">
-              <label>CHeck-in Date</label>
+              <label>Booking Date</label>
               <span onClick={()=>setOpenDate(!openDate)}>{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
                   dates[0].endDate,
                   "MM/dd/yyyy"

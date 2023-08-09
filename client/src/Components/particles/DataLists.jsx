@@ -21,11 +21,11 @@ export const NavLinks = [
 export const NavButtons = [
     {
         name: "Login",
-        url: "/"
+        url: "/login"
     },
     {
         name: "Signup",
-        url: "/"
+        url: "/register"
     }
 
 ];
