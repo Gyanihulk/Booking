@@ -32,7 +32,7 @@ mongoose.connection.on("disconnected", () => {
 //   })
 // );
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://chardhamstays.com');
+  res.setHeader('Access-Control-Allow-Origin', process.env.DOMAIN_NAME);
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
