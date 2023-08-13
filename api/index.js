@@ -25,12 +25,19 @@ mongoose.connection.on("disconnected", () => {
 });
 
 //middlewares
-app.use(
-  cors({
-      credentials: true,
-      origin: "http://localhost:3000",
-  })
-);
+// app.use(
+//   cors({
+//       credentials: true,
+//       origin: process.env.,
+//   })
+// );
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://chardhamstays.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 app.use(cookieParser())
 app.use(express.json());
 
