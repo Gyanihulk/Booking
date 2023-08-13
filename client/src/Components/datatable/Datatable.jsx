@@ -8,20 +8,30 @@ import axios from "axios";
 const Datatable = ({columns}) => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
- 
+  const[refresh,setRefresh]=useState(false)
+  const [gridKey, setGridKey] = useState(0);
   const { data, loading, error } = useFetch(`${path}`);
-
   const [list, setList] = useState([]);
   useEffect(() => {
+   
     setList(data);
-  }, [data]);
+    setGridKey(prevKey => prevKey + 1);
+    console.log("run")
+  }, [data,refresh]);
 
 
-  const handleDelete = (id) => {};
+  const handleDelete = async (id) => {
+    await axios.delete(`/${path}/${id}`).then(response=>response?.status===200?setRefresh(prevRefresh => !prevRefresh):"")
+    
+}; 
 
-  
+if (loading) {
+  return <div>Loading...</div>;
+}
 
-  console.log(list)
+if (error) {
+  return <div>Error: {error.message}</div>;
+}
   const actionColumn = [
     {
       field: "action",
@@ -30,13 +40,14 @@ const Datatable = ({columns}) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to={`/${path}/test`} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
             <div
               className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row._id)}
             >
+           
               Delete
             </div>
           </div>
@@ -47,12 +58,13 @@ const Datatable = ({columns}) => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New User
+        Add New {path==='hotels'?"Hotel":(path==='users'?"User":"Room")}
         <Link to={`new`} className="link">
           Add New
         </Link>
       </div>
-      <DataGrid
+     {loading?"loading": <DataGrid
+        key={gridKey}
         className="datagrid"
         rows={list}
         columns={columns.concat(actionColumn)}
@@ -60,7 +72,7 @@ const Datatable = ({columns}) => {
         rowsPerPageOptions={[9]}
         checkboxSelection
         getRowId={(row) => row._id}
-      />
+      />}
     </div>
     
   );

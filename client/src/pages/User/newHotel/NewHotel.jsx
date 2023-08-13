@@ -8,13 +8,14 @@ import axios from "axios";
 import useFetch from "../../../hooks/useFetch";
 import Sidebar from "../../../Components/sidebar/Sidebar";
 import { hotelInputs } from "../../../formSource";
+import { useNavigate } from "react-router-dom";
 
 const NewHotel = () => {
   const [files, setFiles] = useState("");
   const [info, setInfo] = useState({});
   const [rooms, setRooms] = useState([]);
 
-  const { data, loading, error } = useFetch("/rooms");
+  const { data, loading, error } = useFetch("rooms");
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -28,8 +29,8 @@ const NewHotel = () => {
     setRooms(value);
   };
   
-  console.log(files)
 
+const navigate=useNavigate()
   const handleClick = async (e) => {
     e.preventDefault();
     try {
@@ -57,8 +58,12 @@ const NewHotel = () => {
         photos: list,
       };
 
-      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/hotels`, newhotel,{headers: {'Content-Type': 'application/json'}, withCredentials : true});
-      console.log(newhotel)
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/hotels`, newhotel,{headers: {'Content-Type': 'application/json'}, withCredentials : true}).then((response)=>{
+        if(response?.status===200){
+          navigate("/hotels")
+        }
+      });
+   
     } catch (err) {console.log(err)}
   };
   return (
@@ -126,7 +131,7 @@ const NewHotel = () => {
                       ))}
                 </select>
               </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Save</button>
             </form>
           </div>
         </div>
