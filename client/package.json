@@ -53,7 +53,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://bookingbackend.onrender.com/api",
+  "proxy": "http://localhost:5000/api",
   "devDependencies": {
     "tailwindcss": "^3.3.3"
   }

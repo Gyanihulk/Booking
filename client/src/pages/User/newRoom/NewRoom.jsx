@@ -13,7 +13,7 @@ const NewRoom = () => {
   const [hotelId, setHotelId] = useState(undefined);
   const [rooms, setRooms] = useState([]);
 
-  const { data, loading, error } = useFetch("/hotels");
+  const { data, loading, error } = useFetch("hotels");
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -23,7 +23,7 @@ const NewRoom = () => {
     e.preventDefault();
     const roomNumbers = rooms.split(",").map((room) => ({ number: room }));
     try {
-      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/rooms/${hotelId}`, { ...info, roomNumbers });
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/rooms/${hotelId}`, { ...info, roomNumbers },{headers: {'Content-Type': 'application/json'}, withCredentials : true});
     } catch (err) {
       console.log(err);
     }
