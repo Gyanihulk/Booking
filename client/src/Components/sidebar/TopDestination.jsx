@@ -79,10 +79,10 @@ const TopDestination = () => {
             {/* Controllers  */}
             <div className="mt-12 w-full flex justify-end gap-5 items-center md:px-6 px-3">
                 <Button onClick={previous} className="cursor-pointer outline-none border-none bg-color2/30 text-color3 hover:bg-color2 p-2 rounded-full" type="button">
-                    <CaretLeft size={18} color="currentColor" weight="fill" />
+                    {/* <CaretLeft size={18} color="currentColor" weight="fill" /> */}
                 </Button>
                 <Button onClick={next} className="cursor-pointer outline-none border-none bg-color2/30 text-color3 hover:bg-color2 p-2 rounded-full" type="button">
-                    <CaretRight size={18} color="currentColor" weight="fill" />
+                    {/* <CaretRight size={18} color="currentColor" weight="fill" /> */}
                 </Button>
             </div>
 

@@ -4,10 +4,6 @@ import City3 from "../../assets/gallery3.jpg"
 import City4 from "../../assets/gallery4.jpg"
 import City5 from "../../assets/Kedarnath.jpg"
 import City6 from "../../assets/Badrinath.jpg"
-import ProfileImg1 from "../../assets/men1.jpg"
-import ProfileImg2 from "../../assets/women1.jpg"
-import ProfileImg3 from "../../assets/men2.jpg"
-import ProfileImg4 from "../../assets/women2.jpg"
 export const NavLinks = [
     {
         name: "Destination",
@@ -148,26 +144,22 @@ export const TestimonialTexts = {
         {
             text: "Our trip to Uttarakhand was a journey of a lifetime. The majestic Himalayas, serene lakes, and charming hill towns left us in awe. The team at Uttarakhand Travel Experts made it all possible. Highly recommended!",
             person: "Rahul Sharma",
-            location: "Delhi, India",
-            img:ProfileImg1
+            location: "Delhi, India"
         },
         {
             text: "Exploring Nainital and Mussoorie with Uttarakhand Travel Adventures was a dream come true. The picturesque landscapes and warm hospitality made it a perfect getaway. Thanks for the wonderful memories!",
             person: "Sunita Singh",
-            location: "Haryana, India",
-            img:ProfileImg2
+            location: "Haryana, India"
         },
         {
             text: "Our spiritual retreat in Rishikesh was unforgettable. The yoga sessions, Ganga Aarti, and serene ashrams made it a soul-enriching experience. Thank you, Uttarakhand Travel Guru, for the excellent arrangements!",
             person: "Amit Patel",
-            location: "Mumbai, India",
-            img:ProfileImg3
+            location: "Mumbai, India"
         },
         {
             text: "Our wildlife safari in Jim Corbett National Park was an incredible adventure. Spotting tigers in their natural habitat was a thrill like no other. Thanks to Uttarakhand Travel Explorers for organizing this amazing journey!",
             person: "Priya Sharma",
-            location: "Bangalore, India",
-            img:ProfileImg4
+            location: "Bangalore, India"
         },
     ],
 }
