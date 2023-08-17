@@ -8,6 +8,7 @@ module.exports = {
         color2: "#FA9C0F",
         color3: "#152F37",
         color4: "#35528B",
+        dark:"#000000"
       },
       fontFamily: {
         poppins: ["Poppins"],

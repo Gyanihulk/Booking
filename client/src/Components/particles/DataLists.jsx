@@ -212,22 +212,22 @@ export const FooterTexts = {
         ]
     },
     contacts: {
-        caption: "Contacts",
+        caption: "Contact",
         links: [
             {
-                name: "FAQs",
+                name: "info@chardhamstays.com",
                 url: "/"
             },
             {
-                name: "Help",
+                name: "+91 9997111443",
                 url: "/"
             },
             {
-                name: "Policies",
+                name: "+91 9837855559",
                 url: "/"
             },
             {
-                name: "Terms & Conditions",
+                name: "79, Elegant plaza,Araghar,Haridwar Road,Dehradun -248001",
                 url: "/"
             }
         ]

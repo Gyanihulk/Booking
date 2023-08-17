@@ -37,7 +37,7 @@ const Header = ({ type }) => {
     children: 0,
     room: 1,
   });
-
+// useEffect(()=>{setOpenDate(false)},[dates])
   const handleOption = (name, operation) => {
     setOptions((prev) => {
       return {
@@ -103,6 +103,7 @@ const Header = ({ type }) => {
                   "MM/dd/yyyy"
                 )}`}</span>
                 {openDate && (
+                  <>
                   <DateRange
                     editableDateInputs={true}
                     onChange={(item) => setDates([item.selection])}
@@ -110,7 +111,9 @@ const Header = ({ type }) => {
                     ranges={dates}
                     className="date"
                     minDate={new Date()}
-                  />
+                    />
+                    <button onClick={()=>setOpenDate(false)}>selected</button>
+                    </>
                 )}
               </div>
               <div className="headerSearchItem">

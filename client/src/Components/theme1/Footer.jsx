@@ -83,14 +83,17 @@ const Footer = () => {
                         </List>
                     </ul>
 
-                    <Text as="p" className="text-base font-light text-color4">
+                    {/* <Text as="p" className="text-base font-light text-color4">
                         Discover Our App
                     </Text>
-                    <Image image={app} className="w-28" alt="App Download" as="a" href="/" />
+                    <Image image={app} className="w-28" alt="App Download" as="a" href="/" /> */}
                 </div>
             </section>
-            <Text className="text-center bg-color4 text-white text-xs py-6 font-light">
+            <Text className="text-center bg-color4 text-white text-xs pt-6 font-light">
                 Copyright 2023. chardhamstays.com. All rights reserved.
+            </Text>
+            <Text className="text-center bg-color4 text-white text-xs  pt-2 font-light">
+                Maintained and developed by <a  href="https://ubiquitous-palmier-e3a771.netlify.app/" target="_blank" >Gyanihulk</a>
             </Text>
         </footer>
     )
