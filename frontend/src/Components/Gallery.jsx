@@ -11,9 +11,9 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import GalleryCard from "./GalleryCard";
 const galleryData = [
-  { top: "CHARDHAM HOTEL", middle: "NEAR SHANTIKUNJ BHUPATWALA", bottom: "" ,img:"assets/img/gallery/gallery-1.jpg"},
-  { top: "CHARDHAM HOTEL", middle: "IN MUSSOORIE", bottom: "" ,img:"assets/img/gallery/gallery-2.jpg"},
-  { top: "CHARDHAM HOTEL", middle: "NEAR RISHIKESH RAM JHULA", bottom: "" ,img:"assets/img/gallery/gallery-3.jpeg"},
+  { top: "CHARDHAM STAYS", middle: "NEAR SHANTIKUNJ BHUPATWALA", bottom: "" ,img:"assets/img/gallery/gallery-1.jpg"},
+  { top: "CHARDHAM STAYS", middle: "IN MUSSOORIE", bottom: "" ,img:"assets/img/gallery/gallery-2.jpg"},
+  { top: "CHARDHAM STAYS", middle: "NEAR RISHIKESH RAM JHULA", bottom: "" ,img:"assets/img/gallery/gallery-3.jpeg"},
 ];
 export default function Gallery() {
   const progressCircle = useRef(null);

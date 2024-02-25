@@ -6,7 +6,7 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-primary: "Amatic SC", sans-serif;
   --font-secondary: "Inter", sans-serif;
-  --font-logo:'Protest Strike', sans-serif;
+  --font-logo:'Vampire Wars', sans-serif;
  --font-navbar:'Lora', serif;
 }
 
@@ -23,6 +23,36 @@
   scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: 'Mastery Kingdom';
+  src: url('/assets/fonts/Mastery Kingdom.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Milestone';
+  src: url('/assets/fonts/Milestone.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Deutsch';
+  src: url('/assets/fonts/Deutsch.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Vampire Wars';
+  src: url('/assets/fonts/Vampire Wars.otf') format('opentype');
+}
+.vampireWars{
+  font-family: 'Vampire Wars', sans-serif;
+  letter-spacing: 2px;
+}
+.Milestone{
+  font-family: 'Milestone', sans-serif;
+}
+.masteryKindom {
+  font-family: 'Mastery Kingdom', sans-serif;
+}
+.Deutsch{
+  font-family: 'Deutsch', sans-serif;
+}
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -110,6 +140,7 @@ section {
   display: flex;
   flex:grid;
   flex-direction: row;
+  justify-content: center;
 }
 .header .logo img {
   max-height: 90px;
@@ -126,6 +157,7 @@ section {
   margin: 0;
   padding-top: 25px;
   font-family: var(--font-logo);
+  /* letter-spacing: 2px; */
 }
 
 .header .logo h1 span {
@@ -176,6 +208,9 @@ section {
   }
   .booking-form .form-field{
     padding-bottom: 10px;
+  }
+  .booking-form option{
+    width: 100%;
   }
   .logo img {
     max-height: 70px;
@@ -525,7 +560,6 @@ section {
   color: lightgray;
 }
 .booking-form form {
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -579,3 +613,17 @@ section {
 .footer .credits a {
   color: #fff;
 }
+
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+} */
+

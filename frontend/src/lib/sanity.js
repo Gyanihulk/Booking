@@ -1,34 +1,69 @@
 // sanity.js
-import {createClient} from '@sanity/client'
-// Import using ESM URL imports in environments that supports it:
-// import {createClient} from 'https://esm.sh/@sanity/client'
-
+import { createClient } from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 export const client = createClient({
-  projectId: 'akldf27l',
-  dataset: 'production',
-  useCdn: true, // set to `false` to bypass the edge cache
-  apiVersion: '2023-05-03', // use current date (YYYY-MM-DD) to target the latest API version
-  token: import.meta.env.VITE_SANITY_TOKEN
-})
+  projectId: "akldf27l",
+  dataset: "production",
+  apiVersion: "2023-05-03", // use current date (YYYY-MM-DD) to target the latest API version
+  token: import.meta.env.VITE_SANITY_TOKEN,
+});
 export async function getHotels() {
-  const posts = await client.fetch('*[_type == "hotel"]')
-  return posts
+  const posts = await client.fetch('*[_type == "hotel"]');
+  return posts;
 }
-// uses GROQ to query content: https://www.sanity.io/docs/groq
+export async function getHotelWithRoomById(hotelId) {
+  const query = `*[_type == "hotel" && _id == $hotelId]{
+  _id,
+  title,
+  address,
+  city,
+  name,
+  photos[]{
+    ...,
+    asset->{
+      _id,
+      url
+    }
+  },
+  rooms[]->{
+    _id,
+    title,
+    desc,
+    price,
+    images[]{
+      ...,
+      asset->{
+        _id,
+        url
+      }
+    }
+  },
+  _createdAt,
+  _updatedAt
+}
+`;
+  const hotel = await client.fetch(query, { hotelId });
+  return hotel;
+}
+const builder = imageUrlBuilder(client);
+export function buildImageUrl(image) {
+  return builder.image(image.asset).url();
+
+}
+
 export async function getPosts() {
-  const posts = await client.fetch('*[_type == "post"]')
-  return posts
+  const posts = await client.fetch('*[_type == "post"]');
+  return posts;
 }
 
 export async function createPost(post) {
-  const result = client.create(post)
-  return result
+  const result = client.create(post);
+  return result;
 }
 
-
 export async function updateDocumentTitle(_id, title) {
-  const result = client.patch(_id).set({title})
-  return result
+  const result = client.patch(_id).set({ title });
+  return result;
 }
 
 export async function deleteDuplicateHotels() {
@@ -38,7 +73,7 @@ export async function deleteDuplicateHotels() {
   // Create a map to track duplicates by hotel name
   const hotelMap = new Map();
 
-  hotels.forEach(hotel => {
+  hotels.forEach((hotel) => {
     const hotelName = hotel.name.toLowerCase(); // Assuming 'name' is the field to check for duplicates
     if (hotelMap.has(hotelName)) {
       hotelMap.get(hotelName).push(hotel._id);
@@ -64,10 +99,10 @@ export async function deleteDuplicateHotels() {
 
   try {
     const result = await transaction.commit();
-    console.log('Deleted duplicates:', result);
+    console.log("Deleted duplicates:", result);
     return result;
   } catch (error) {
-    console.error('Failed to delete duplicates:', error);
+    console.error("Failed to delete duplicates:", error);
     throw error;
   }
 }

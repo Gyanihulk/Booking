@@ -85,7 +85,7 @@ const height3=windowSize.width<450?"150px":"250px";
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <div className="content ps-0 ps-lg-5">
+            <div className="content ps-0 ps-lg-5 ">
               <h1>About Us</h1>
               <p>
                 ChardhamStay Hotels is a renowned name in the hotel industry,

@@ -12,7 +12,7 @@ export const HotelProvider = ({ children }) => {
         try {
           // Replace this with your actual fetch call
           const response = await getHotels();
-          setHotels(response);
+          setHotels(response.slice(0,7));
         } catch (error) {
           console.error('Failed to fetch hotels:', error);
         } finally {

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { HotelCardContainer } from './HotelCardContainer';
+import { HotelContext } from '../context/HotelContext';
 
 
 function HotelGallery() {
+  const {hotels} =useContext(HotelContext)
+  console.log(hotels)
   return (
     <section id="stats-counter" className="stats-counter">
       

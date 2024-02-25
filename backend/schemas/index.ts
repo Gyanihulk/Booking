@@ -83,6 +83,7 @@ import collectionGroup from './objects/collection/group'
 import collectionLinks from './objects/collection/links'
 import room from './documents/room'
 import hotel from './documents/hotel'
+import facility from './singletons/facility'
 
 const objects = [
   customProductOptionColor,
@@ -133,7 +134,8 @@ const objects = [
   collectionGroup,
   collectionLinks,
   room,
-  hotel
+  hotel,
+  facility
 ]
 
 export const schemaTypes = [...annotations, ...singletons, ...objects, ...blocks, ...documents]
