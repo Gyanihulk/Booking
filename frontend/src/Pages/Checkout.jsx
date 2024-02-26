@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CustomerDetailsForm } from "../Components/CustomerDetailsForm";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { buildImageUrl, getHotelWithRoomById } from "../lib/sanity";
 import toast from "react-hot-toast";
 import RoomSelectForm from "../Components/RoomSelectForm";
@@ -31,11 +31,15 @@ const Checkout = () => {
       toast('Please agree to the privacy and return policies.');
       return;
     }
-    // Proceed with confirmation actions
-    alert('Confirmed!');
+    const min = 10000;
+    const max = 1000000;
+    const orderId = Math.floor(Math.random() * (max - min + 1)) + min;
+    navigate(
+      `/phonepaycheckoutPage?price=${totalCost}&orderId=${orderId}`
+    );
     handleCloseModal();
   };
-
+  const navigate=useNavigate();
   const handleFirstNameChange = (event) => setFirstName(event.target.value);
   const handleLastNameChange = (event) => setLastName(event.target.value);
   const handleEmailChange = (event) => setEmail(event.target.value);
@@ -130,6 +134,7 @@ const Checkout = () => {
   useEffect(() => {
     const date = query.get("date");
     const nights = query.get("nights");
+    
     setCheckinDate(date);
     console.log(`Hotel ID: ${hotelId}, Date: ${date}, Nights: ${nights}`);
     (async () => {
@@ -202,9 +207,19 @@ const Checkout = () => {
                 </label>
               </div>
             </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-primary" onClick={handleConfirm}>Confirm</button>
+            <div className="modal-footer d-flex flex-column">
+              <h3 className="bg-primary">Make Payment</h3>
+              <div className="form-check">
+                <input className="form-check-input" type="checkbox" checked={isAgreed} onChange={handleAgreementChange} id="agreeCheckbox"/>
+                <label className="form-check-label" htmlFor="agreeCheckbox">
+                  PhonePay(UPI/Cards/Net banking).
+                </label>
+              </div>
+              <div>
+
+              <button type="button" className="btn btn-primary" onClick={handleConfirm}>Make Payment</button>
               <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={handleCloseModal}>Close</button>
+              </div>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ import PrivacyPolicy from './Pages/Privacy';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Checkout from './Pages/Checkout';
 import { Toaster } from 'react-hot-toast';
+import PhonePayCheckoutPage from './Pages/PhonePayCheckoutPage';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/hotel/:hotelId/checkout/" element={<Checkout/>} />
+          <Route path="/phonepaycheckoutPage" element={<PhonePayCheckoutPage/>} />
         </Routes>
       </div>
     <Footer/>
