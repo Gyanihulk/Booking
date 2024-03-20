@@ -6,8 +6,8 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-primary: "Amatic SC", sans-serif;
   --font-secondary: "Inter", sans-serif;
-  --font-logo:'Vampire Wars', sans-serif;
- --font-navbar:'Lora', serif;
+  --font-logo:"horizon", sans-serif;
+ 
 }
 
 /* Colors */
@@ -40,19 +40,11 @@
   font-family: 'Vampire Wars';
   src: url('/assets/fonts/Vampire Wars.otf') format('opentype');
 }
-.vampireWars{
-  font-family: 'Vampire Wars', sans-serif;
-  letter-spacing: 2px;
+@font-face {
+  font-family: 'horizon';
+  src: url('/assets/fonts/horizon.otf') format('opentype');
 }
-.Milestone{
-  font-family: 'Milestone', sans-serif;
-}
-.masteryKindom {
-  font-family: 'Mastery Kingdom', sans-serif;
-}
-.Deutsch{
-  font-family: 'Deutsch', sans-serif;
-}
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -124,11 +116,12 @@ section {
   background: #fff;
   transition: all 0.5s;
   z-index: 997;
-  height: 90px;
+  height: 70px;
   border-bottom: 1px solid #fff;
 }
 .header-logo {
-  width: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 .header.sticked {
@@ -151,13 +144,15 @@ section {
 }
 
 .header .logo h1 {
-  font-size: 34px;
-  font-weight: 700;
+  display: flex;
+  padding-top: 4px;
+  align-items: center;
+  font-size: 1.3rem;
   color: var(--font-color-primary);
   margin: 0;
-  padding-top: 25px;
+  transform: scaleY(1.8); 
   font-family: var(--font-logo);
-  /* letter-spacing: 2px; */
+
 }
 
 .header .logo h1 span {
@@ -166,7 +161,7 @@ section {
 
 .header .btn-book-a-table,
 .header .btn-book-a-table:focus {
-  font-size: 14px;
+  font-size: 10px;
   color: #fff;
   background: var(--color-primary);
   padding: 8px 20px;
@@ -218,7 +213,7 @@ section {
     margin-right: 6px;
   }
   .header .logo h1 {
-    font-size: 25px;
+    font-size: 1.1rem;
   }
   .btn-book-a-table {
     display: none;
@@ -266,7 +261,7 @@ section {
     justify-content: space-between;
     padding: 0 3px;
     font-family: var(--font-navbar);
-    font-size: 25px;
+    font-size: 15px;
     font-weight: 600;
     color:var(--font-color-primary);
     white-space: nowrap;

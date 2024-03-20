@@ -3,10 +3,10 @@ import { Slide } from "react-awesome-reveal";
 import PropTypes from 'prop-types';
 const GalleryCard = ({data}) => {
   return (
-    <div className="heroSwiper vampireWars">
-      <Slide direction="left" className="heading masteryKindom">{data?.middle}
+    <div className="heroSwiper">
+      <Slide direction="left" className="top-text">{data?.middle}
         </Slide>
-        <Slide direction="down" className="top-text ">{data?.top}</Slide>
+        <Slide direction="down" className=" heading">{data?.top}</Slide>
       <img
         src={data?.img}
         className="img-fluid"
@@ -19,13 +19,17 @@ const GalleryCard = ({data}) => {
 
 GalleryCard.propTypes = {
   data: PropTypes.shape({
-    img: PropTypes.string
+    img: PropTypes.string,
+    middle:PropTypes.string,
+    top:PropTypes.string,
   })
 };
 
 GalleryCard.defaultProps = {
   data: {
-    img: ''
+    img: '',
+    middle:'',
+    top:'',
   }
 };
 export default GalleryCard;

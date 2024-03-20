@@ -1,5 +1,4 @@
-import React from 'react'
-import Header from '../Components/Header'
+
 import Gallery from '../Components/Gallery'
 import HotelBookingForm from '../Components/HotelBookingForm'
 import Parrallex from '../Components/Parrallex'

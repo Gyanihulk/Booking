@@ -19,7 +19,7 @@ const Header = () => {
 
             <div className="logo">
               <img className="header-logo " src="assets/img/logo.png"/> 
-              <h1>Chardham Stays</h1>
+              <h1>ChardhamStays</h1>
             </div>
               </Link>
               
@@ -63,7 +63,7 @@ const Header = () => {
                       role="button"
                       aria-expanded="false"
                     >
-                      Gallery
+                      Chardham
                     </a>
                     <ul className="dropdown-menu">
                     {hotels && hotels.slice(0, 7).map((hotel, index) => (<li key={index}>
@@ -76,12 +76,50 @@ const Header = () => {
                    
                     </ul>
                   </li>
-                  <li className="nav-item">
-                    <a href="#blog">Blog</a>
+                  <li className="nav-item dropdown">
+                    <a
+                      className="nav-link dropdown-toggle"
+                      data-bs-toggle="dropdown"
+                      href="#"
+                      role="button"
+                      aria-expanded="false"
+                    >
+                      Heli Service
+                    </a>
+                    <ul className="dropdown-menu">
+                    {hotels && hotels.slice(0, 7).map((hotel, index) => (<li key={index}>
+                        <a className="dropdown-item" href="#">
+                          {hotel.name} 
+                        </a>
+                      </li>))}
+                     
+                   
+                   
+                    </ul>
                   </li>
-                  <li className="nav-item">
-                    <a href="#contact">Contact</a>
+                  <li className="nav-item dropdown">
+                    <a
+                      className="nav-link dropdown-toggle"
+                      data-bs-toggle="dropdown"
+                      href="#"
+                      role="button"
+                      aria-expanded="false"
+                    >
+                      Adventure Sports
+                    </a>
+                    <ul className="dropdown-menu">
+                    {hotels && hotels.slice(0, 7).map((hotel, index) => (<li key={index}>
+                        <a className="dropdown-item" href="#">
+                          {hotel.name} 
+                        </a>
+                      </li>))}
+                     
+                   
+                   
+                    </ul>
                   </li>
+                
+                
                   <li>
                   <a className="btn-book-a-table" href="#book">
                     BOOK NOW
@@ -90,7 +128,7 @@ const Header = () => {
                 </ul>
               </nav>
               
-              <button
+              {/* <button
                 className="navbar-toggler custom-toggler"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasDarkNavbar"
@@ -98,7 +136,7 @@ const Header = () => {
                 aria-label="Toggle navigation"
               >
                 <span className="navbar-toggler-icon"></span>
-              </button>
+              </button> */}
               <div
                 className="offcanvas offcanvas-end text-bg-dark"
                 tabIndex="-1"

@@ -1,5 +1,4 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+import  { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -15,6 +14,7 @@ const galleryData = [
   { top: "CHARDHAM STAYS", middle: "IN MUSSOORIE", bottom: "" ,img:"assets/img/gallery/gallery-2.jpg"},
   { top: "CHARDHAM STAYS", middle: "NEAR RISHIKESH RAM JHULA", bottom: "" ,img:"assets/img/gallery/gallery-3.jpeg"},
 ];
+
 export default function Gallery() {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
