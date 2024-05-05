@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RefundPolicy = () => (
-  <div className="refund-policy">
+  <div className="refund-policy my-10">
     <h1>Refund Policy</h1>
     <p>Last updated: [1-1-2024]</p>
 

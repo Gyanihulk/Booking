@@ -1,7 +1,7 @@
-import React from 'react';
+
 
 const PrivacyPolicy = () => (
-  <div className="privacy-policy container my-5">
+  <div className="privacy-policy container my-10">
     <h1 className="mb-4">Privacy Policy</h1>
     <p>This Privacy Policy outlines how Chardham Stays collects, uses, and protects your personal information when you visit our website or engage with our services.</p>
     

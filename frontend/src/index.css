@@ -622,3 +622,7 @@ section {
   width: auto;
 } */
 
+.my-10 {
+  margin-top: 7rem; /* or any value you want */
+  margin-bottom: 7rem; /* or any value you want */
+}
