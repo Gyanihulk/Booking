@@ -4,6 +4,7 @@ import heroImage from "../../assets/hero-img.png";
 import { Text } from "../atoms/Text";
 import { HeroTexts } from "../particles/DataLists";
 import { Fade, Slide } from "react-awesome-reveal";
+import Header from "../header/Header";
 
 const HeroSection = () => {
 
@@ -54,7 +55,7 @@ const HeroSection = () => {
               <Fade>{HeroTexts.thirdText}</Fade>
             </Text>
 
-            {/* <Header/> */}
+            <Header/>
             <form class="w-full max-w-sm" onSubmit={(e) => Submit(e)}
             //  method="POST"  
             //  action="https://script.google.com/macros/s/AKfycbxI5mT9kTKD0zWZ1ZJutVSQyLI-RqX5rs8NPvTnsnA/dev"
